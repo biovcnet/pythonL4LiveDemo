@@ -25,7 +25,13 @@ for entry in Entries: #for each fasta entry
     
     IDs.append(ID) #collect IDs in to a list
 
+    TaxStart=entry.find(' ')
+    TaxEnd=entry.find('\n')
+    
+    print('\nTaxonomy is', entry[TaxStart:TaxEnd])
+
 print('\n')
+    
 for ID in np.unique(IDs):  #for each unique ID
     if IDs.count(ID)> 1:    #if it occurs more than once
         print(ID,' has ',IDs.count(ID),' duplicates')
