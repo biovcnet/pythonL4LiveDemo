@@ -11,21 +11,24 @@ allText = file1.read() #read in text
 outFile = open('MODexamplesfile.fasta','w') #filepath if you're already in directory, otherwise need full filpath
 
 Entries=allText.split('>') #split text into discrete entries using > header char
+del(Entries[0])
 
 IDs=[]
 
 for entry in Entries: #for each fasta entry
 
     IDend=entry.find('.') #End of each fasta ID is '.'
+    print('ID end index is', IDend)
     
-    ID=entry[:IDend+1]
+    ID=entry[:IDend]
     print('ID is: ',ID)
     
     IDs.append(ID) #collect IDs in to a list
-    
+
+print('\n')
 for ID in np.unique(IDs):  #for each unique ID
     if IDs.count(ID)> 1:    #if it occurs more than once
-    print(ID,' has ',IDs.count(ID),' duplicates')
+        print(ID,' has ',IDs.count(ID),' duplicates')
 
         inds= [i for i, x in enumerate(IDs) if x == ID] #get indexes where they occur in IDs list (which should be same ordering as Entries list)
         
