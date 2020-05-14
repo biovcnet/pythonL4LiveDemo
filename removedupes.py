@@ -3,12 +3,12 @@ import numpy as np
 #File import
 
 #open text file as read only
-file1 = open('PF04264_full_length_sequences.fasta', 'r') #filepath if you're already in directory, otherwise need full filpath
+file1 = open('examplesfile.fasta', 'r') #filepath if you're already in directory, otherwise need full filpath
 
 allText = file1.read() #read in text
 
 #open write-only output file
-outFile = open('mod_PF04264_full_length_sequences.fasta','w') #filepath if you're already in directory, otherwise need full filpath
+outFile = open('mod_examplesfile.fasta','w') #filepath if you're already in directory, otherwise need full filpath
 
 Entries=allText.split('>') #split text into discrete entries using > header char
 
