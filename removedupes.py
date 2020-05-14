@@ -16,7 +16,7 @@ IDs=[]
 
 for entry in Entries: #for each fasta entry
 
-    IDend=entry.find(')') #End of each fasta ID is ')'
+    IDend=entry.find('.') #End of each fasta ID is '.'
     
     ID=entry[:IDend+1]
     
