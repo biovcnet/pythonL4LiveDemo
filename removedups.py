@@ -38,11 +38,14 @@ for ID in np.unique(IDs):  #for each unique ID
 
         inds= [i for i, x in enumerate(IDs) if x == ID] #get indexes where they occur in IDs list (which should be same ordering as Entries list)
         
-        del(Entries[inds[:-1]]) #get the last index in the list of indexes, and delete the corresponding entry in Entries
+        for ind in inds[1:]:
+            del(Entries[ind]) # delete the corresponding entry in Entries other than first occurrence
 
 outStr = ">" #initialize an empty string
 
 outStr=outStr.join(Entries) #join all entries from modified Entries list into on string of text
+
+outSTr=">"+outStr
 
 outFile.write(outStr) #file output
 
